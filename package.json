@@ -1,6 +1,6 @@
 {
   "name": "vue-chartjs-exporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Export charts created by vue-chartjs to PDF files",
   "main": "exporter.js",
   "scripts": {
