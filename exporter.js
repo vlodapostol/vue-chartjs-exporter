@@ -11,7 +11,10 @@ export default class Exporter {
       try {
         this.charts.forEach(async (chart, index, charts) => {
           this.doc = await this.create_page(chart, this.doc);
-          if (index === charts.length - 1) resolve(this.doc); // this.doc.save("charts.pdf"); // <-- at the end of the loop; return PDF
+          if (index === charts.length - 1) {
+            resolve(this.doc); // this.doc.save("charts.pdf"); // <-- at the end of the loop; return PDF
+            return;
+          }
           this.doc.addPage("letter");
         });
       } catch (error) {
