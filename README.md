@@ -100,6 +100,22 @@ Developed for [this Stack Overflow question][8]. See its [answer][9] for more de
 
 Depends on `jspdf` and `html2canvas`. 
 
+### Changelog
+
+**v1.0.2:**
+
+Fixed bug where an extra blank page was appearing at the end of outputted PDFs
+
+**v1.0.1:**
+
+Updated README and added attribution.
+
+**v1.0.0:**
+
+Initial commit.
+
+
+
 [1]: https://i.stack.imgur.com/St79w.png
 [2]: https://i.stack.imgur.com/pC5dZ.png
 [3]: https://i.stack.imgur.com/tuEMI.png
