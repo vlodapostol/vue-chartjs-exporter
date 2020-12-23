@@ -15,6 +15,10 @@
     "vue",
     "export"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marsnebulasoup/vue-chartjs-exporter.git"
+  },
   "author": "Kevin Bryniak",
   "license": "MIT",
   "dependencies": {
