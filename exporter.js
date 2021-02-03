@@ -11,7 +11,7 @@ export default class Exporter {
     return new Promise((resolve, reject) => {
       try {
         this.charts.forEach(async (chart, index, charts) => {
-          this.doc = await this.create_page(chart, this.doc, texts[index]);
+          this.doc = this.texts!==null ? await this.create_page(chart, this.doc, this.texts[index]) : await this.create_page(chart, this.doc, null);
           if (index === charts.length - 1) {
             resolve(this.doc); // this.doc.save("charts.pdf"); // <-- at the end of the loop; return PDF
             return;
@@ -24,7 +24,7 @@ export default class Exporter {
     });
   }
 
-  async create_page(chart, doc, text) {
+  async create_page(chart, doc, text = null) {
     const canvas = await html2canvas(chart, {
       scrollY: -window.scrollY,
       scale: 5 // <-- this is to increase the quality. don't raise this past 5 as it doesn't get much better and just takes longer to process
@@ -38,8 +38,10 @@ export default class Exporter {
       marginX = (pageWidth - canvasWidth) / 2,
       marginY = (pageHeight - canvasHeight) / 2;
 
-    doc.setFontSize(16);
-    doc.text(20, 30, text);
+      if(text!==null){
+        doc.setFontSize(16);
+        doc.text(20, 30, text);
+      }
     doc.addImage(image, "JPEG", marginX, marginY, canvasWidth, canvasHeight);
 
     return doc;
